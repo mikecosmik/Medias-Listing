@@ -1,0 +1,5 @@
+- 	Utilisation de html 5 Boilerplate 
+	(raison principale, pour ne pas me taper la structure HTML lol, 
+	ensuite pour avoir les codes nécessaires genre jQuery sans 
+	avoir à les inclure un à un, ensuite par bonne pratique)
+	https://html5boilerplate.com/
