@@ -1,10 +1,5 @@
-$(document).ready(function(){
-	
-	
-	
-	
-	$('.btn-primary').on('click', function(){
-		
+$(document).ready(function(){		
+	$('.btn-primary').on('click', function(){		
 		console.log('Click');
 		//sérialiser le form
 		$.ajax({
@@ -23,26 +18,24 @@ $(document).ready(function(){
 	})
 });
 
-
-
-
-Vue.component('customers', {
-	template: '#customer-table',
+Vue.component('full_list', {
+	template: '#tbl',
 	data: function(){
 		return{
-			customers: []
+			full_list: []
 		}
 	},
 	created: function(){
-		this.getCustomers();
+		this.getFullList();
 	},
 	methods:{
-		getCustomers(){
-			$.getJSON('includes/json.php',function(customers){
-				this.customers = customers;
+		getFullList(){
+			$.getJSON('includes/json.php',function(full_list){
+				this.full_list = full_list;
 			}.bind(this));
 			
-			setTimeout(this.getCustomers,1000);
+			//réexécuter après 5000 millisecondes
+			setTimeout(this.getFullList,5000);
 		}
 	}
 });
@@ -50,7 +43,3 @@ Vue.component('customers', {
 new Vue({
 	el: '#app'
 })
-
-
-
-

@@ -32,17 +32,20 @@
 		<div class="row">
     		<div class="col-sm-3">
     			<form method="POST" action="" id="formData">
-    				<label for="firstname">Prénom</label>
-    				<input type="text" class="form-control" id="firstname" name="firstname" required />
+    				<label for="firstname">Titre</label>
+    				<input type="text" class="form-control" id="titre" name="titre" required />
     				
-    				<label for="lastname">Nom</label>
-    				<input type="text" class="form-control" id="lastname" name="lastname" required />
+    				<label for="lastname">Descriptions</label>
+    				<input type="text" class="form-control" id="description" name="description" required />
     				
-    				<label for="contact">Contact #</label>
-    				<input type="text" class="form-control" id="contact" name="contact" required />
+    				<label for="contact">Note</label>
+    				<input type="text" class="form-control" id="note" name="note" required />
     				
-    				<label for="email">Email</label>
-    				<input type="text" class="form-control" id="email" name="email" required />
+    				<label for="email">Format</label>
+    				<input type="text" class="form-control" id="format" name="format" required />
+    				
+    				<label for="type">Type</label>
+    				<input type="text" class="form-control" id="type" name="type" required />
     				
     				<button type="button" class="btn form-control btn-primary">Envoyer</button>
     			</form>
@@ -51,23 +54,26 @@
     			<h1>Data table</h1>
     		
     			<div id="app">
-    				<customers></customers>
+    				<full_list></full_list>
     			</div>
-    			
-    			<template id="customer-table">        			
+    			<template id="tbl">      
         			<table class="table table-bordered">
         				<thead>
-        					<th>Prénom</th>
-        					<th>Nom</th>
-        					<th>Contact</th>
-        					<th>Email</th>
+        					<tr>
+            					<th>Titre</th>
+            					<th>Description</th>
+            					<th>Note</th>
+            					<th>Format</th>
+            					<th>Type</th>
+							</tr>					
         				</thead>
         				<tbody>
-        					<tr v-for="customer in customers">
-        						<td>{{customer.firstname}}</td>
-        						<td>{{customer.lastname}}</td>
-        						<td>{{customer.contact}}</td>
-        						<td>{{customer.email}}</td>
+        					<tr v-for="list_element in full_list">
+        						<td>{{list_element.titre}}</td>
+        						<td>{{list_element.description}}</td>
+        						<td>{{list_element.note}}</td>
+        						<td>{{list_element.format}}</td>
+        						<td>{{list_element.type}}</td>
         					</tr>
         				</tbody>
         			</table>
@@ -85,12 +91,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!--         
         ******************
-        note MH: j'ai choisi celui-l�, les warning consoles me semble int�ressants...
+        note MH: j'ai choisi celui-là, les warning consoles me semblent intéressants...
         ******************
     -->
-    
+    <?php 
+        $randomNumber = rand(0, 1000000); 
+    ?>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=<?php echo $randomNumber; ?>"></script>
     
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. 
     <script>
@@ -100,7 +108,7 @@
     <script src="https://www.google-analytics.com/analytics.js" async></script>
     
     ******************
-    note MH: m�me si inclus dans Boilerplate, tout � fait inutile en ce qui nous int�resse
+    note MH: même si inclus dans Boilerplate, tout à fait inutile en ce qui nous int�resse
     ******************
     -->
     
