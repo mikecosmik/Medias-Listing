@@ -72,8 +72,8 @@
         						<td>{{list_element.titre}}</td>
         						<td>{{list_element.description}}</td>
         						<td>{{list_element.note}}</td>
-        						<td>{{list_element.format}}</td>
-        						<td>{{list_element.type}}</td>
+        						<td>{{list_element.fk_format}}</td>
+        						<td>{{list_element.fk_type}}</td>
         					</tr>
         				</tbody>
         			</table>
