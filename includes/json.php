@@ -29,7 +29,7 @@ if(isset($_GET['order_by'])){
 
 
 
-$stmt = $pdo->query('   SELECT *, type.nom as type_nom, format.nom as format_nom
+$stmt = $pdo->query('   SELECT *, media_element.id as media_id, type.nom as type_nom, format.nom as format_nom
                         FROM media_element 
                         LEFT JOIN
                         type ON

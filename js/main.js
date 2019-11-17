@@ -16,6 +16,48 @@ $(document).ready(function(){
 			}
 		});
 	})
+	
+	$('.fa-edit').on('click', function(){	
+		var id = $(this).children('span').text();
+		console.log(id);
+		//edit(id);
+		//sérialiser le form
+		/*
+		$.ajax({
+			type: 'POST',
+			url: 'includes/post.php',
+			data: $("#formData").serialize()
+		})		
+		.done(function(data){;
+			//efface le form
+			$("#formData").trigger('reset');
+			
+			if(data=="1"){
+				console.log("Ajout effectué!");
+			}
+		});*/
+	})
+	
+	$('.fa-trash').on('click', function(){	
+		var id = $(this).children('span').text();
+		console.log(id);
+		//delete(id);
+		//sérialiser le form
+		/*
+		$.ajax({
+			type: 'POST',
+			url: 'includes/post.php',
+			data: $("#formData").serialize()
+		})		
+		.done(function(data){;
+			//efface le form
+			$("#formData").trigger('reset');
+			
+			if(data=="1"){
+				console.log("Ajout effectué!");
+			}
+		});*/
+	})
 });
 
 

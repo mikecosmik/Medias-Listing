@@ -25,3 +25,7 @@ h1{
 .wsnr{
 	white-space: nowrap !important;
 }
+
+.fas span{
+	display: none;
+}

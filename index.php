@@ -89,8 +89,8 @@
         						<td class="wsnr">{{list_element.note}}</td>
         						<td class="wsnr">{{list_element.format_nom}}</td>
         						<td class="wsnr">{{list_element.type_nom}}</td>
-        						<td><a href=''><i class="fas fa-edit">{{list_element.id}}</i></a></td>
-        						<td><a href=""><i class="fas fa-trash">{{list_element.id}}</i></a></td>
+        						<td><a href="javascript:void(0);"><i class="fas fa-edit"><span>{{list_element.media_id}}</span></i></a></td>
+        						<td><a href="javascript:void(0);"><i class="fas fa-trash"><span>{{list_element.media_id}}</span></i></a></td>
         					</tr>
         				</tbody>
         			</table>
