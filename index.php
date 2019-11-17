@@ -42,10 +42,14 @@
     				<input type="text" class="form-control" id="note" name="note" required />
     				
     				<label for="email">Format</label>
-    				<input type="text" class="form-control" id="format" name="format" required />
+    				<select id="format" name="format" required />
+    				<?php include_once 'includes/select_format.php';?>
+    				</select>
     				
     				<label for="type">Type</label>
-    				<input type="text" class="form-control" id="type" name="type" required />
+    				<select id="type" name="type" required />
+    				<?php include_once 'includes/select_type.php';?>
+    				</select>
     				
     				<button type="button" class="btn form-control btn-primary">Envoyer</button>
     			</form>
@@ -60,11 +64,11 @@
         			<table class="table table-bordered">
         				<thead>
         					<tr>
-            					<th>Titre</th>
-            					<th>Description</th>
-            					<th>Note</th>
-            					<th>Format</th>
-            					<th>Type</th>
+            					<th><a href="?order_by=titre">Titre</a></th>
+            					<th><a href="?order_by=description">Description</a></th>
+            					<th><a href="?order_by=note">Note</a></th>
+            					<th><a href="?order_by=format">Format</a></th>
+            					<th><a href="?order_by=type">Type</a></th>
 							</tr>					
         				</thead>
         				<tbody>
@@ -72,8 +76,8 @@
         						<td>{{list_element.titre}}</td>
         						<td>{{list_element.description}}</td>
         						<td>{{list_element.note}}</td>
-        						<td>{{list_element.fk_format}}</td>
-        						<td>{{list_element.fk_type}}</td>
+        						<td>{{list_element.format_nom}}</td>
+        						<td>{{list_element.type_nom}}</td>
         					</tr>
         				</tbody>
         			</table>

@@ -1,8 +1,13 @@
-input{
+input,
+select{
 	margin-bottom: 20px;
 }
 
 *{
 	font-family: "Open sans", Arial, sans-serif;
 	color: rgb(58,58,58)
+}
+
+select{
+	width: 100% !important;
 }

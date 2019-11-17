@@ -1,19 +1,20 @@
 <?php 
 include('dbcon.php');
 
-$firstName  = $_POST['firstname']; 
-$lastName   = $_POST['lastname'];
-$contact    = $_POST['contact'];
-$email      = $_POST['email'];
+$titre          = $_POST['titre']; 
+$description    = $_POST['description'];
+$note           = $_POST['note'];
+$format         = $_POST['format'];
+$type           = $_POST['type'];
 
-$insert = mysqli_query($con, "insert into customer_info(firstname, lastname, contact, email) values ('$firstName','$lastName','$contact','$email')");
+$query = "INSERT INTO media_element(titre, description, note, fk_format, fk_type) values ('$titre','$description','$note','$format','$type')";
+$insert = mysqli_query($pdo, $query);
+$stmt = $pdo->query($query);
+echo $query;
 
 if($insert){
     echo "1";
 }else{
     echo "0";
 }
-
-mysqli_close($con);
-
 ?>
