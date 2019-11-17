@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/custom_mh.css" />
     
+    <link href="css/fontawesome-5.11.2-web/css/all.css" rel="stylesheet">
+    
     <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -30,6 +32,10 @@
     
 	<div class="container">
 		<div class="row">
+    		<div class="col-sm-12"><h1>Petite application de base 'Liste de médias'</h1></div></div>
+    	</div>
+		
+		<div class="row">
     		<div class="col-sm-3">
     			<form method="POST" action="" id="formData">
     				<label for="firstname">Titre</label>
@@ -38,16 +44,23 @@
     				<label for="lastname">Descriptions</label>
     				<input type="text" class="form-control" id="description" name="description" required />
     				
-    				<label for="contact">Note</label>
-    				<input type="text" class="form-control" id="note" name="note" required />
+    				<label for="contact">Note/Appréciation</label>
+    				<select class="form-control" id="note" name="note" required>
+    					<option>5</option>
+    					<option>4</option>
+    					<option>3</option>
+    					<option>2</option>
+    					<option>1</option>
+    				</select>
+
     				
     				<label for="email">Format</label>
-    				<select id="format" name="format" required />
+    				<select class="form-control" id="format" name="format" required />
     				<?php include_once 'includes/select_format.php';?>
     				</select>
     				
     				<label for="type">Type</label>
-    				<select id="type" name="type" required />
+    				<select class="form-control" id="type" name="type" required />
     				<?php include_once 'includes/select_type.php';?>
     				</select>
     				
@@ -55,8 +68,6 @@
     			</form>
     		</div>
     		<div class="col-sm-9">
-    			<h1>Data table</h1>
-    		
     			<div id="app">
     				<full_list></full_list>
     			</div>
@@ -75,9 +86,11 @@
         					<tr v-for="list_element in full_list">
         						<td>{{list_element.titre}}</td>
         						<td>{{list_element.description}}</td>
-        						<td>{{list_element.note}}</td>
-        						<td>{{list_element.format_nom}}</td>
-        						<td>{{list_element.type_nom}}</td>
+        						<td class="wsnr">{{list_element.note}}</td>
+        						<td class="wsnr">{{list_element.format_nom}}</td>
+        						<td class="wsnr">{{list_element.type_nom}}</td>
+        						<td><a href=''><i class="fas fa-edit">{{list_element.id}}</i></a></td>
+        						<td><a href=""><i class="fas fa-trash">{{list_element.id}}</i></a></td>
         					</tr>
         				</tbody>
         			</table>
@@ -119,6 +132,8 @@
     
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/45191f2ac6.js"></script>
+    fontawesome-5.11.2-web
 </body>
 
 </html>

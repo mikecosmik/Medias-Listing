@@ -1,3 +1,8 @@
+body{
+	width: 95%;
+	margin: 0 auto;
+}
+
 input,
 select{
 	margin-bottom: 20px;
@@ -10,4 +15,13 @@ select{
 
 select{
 	width: 100% !important;
+}
+
+h1{
+	text-align: center;
+	width: 100%;
+}
+
+.wsnr{
+	white-space: nowrap !important;
 }
