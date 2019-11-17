@@ -38,6 +38,9 @@
 		<div class="row">
     		<div class="col-sm-3">
     			<form method="POST" action="" id="formData">
+    				<input type="hidden" id="update" name="update" value="0" />
+    				<input type="hidden" id="id" name="id" value="" />
+    				
     				<label for="firstname">Titre</label>
     				<input type="text" class="form-control" id="titre" name="titre" required />
     				
@@ -46,11 +49,15 @@
     				
     				<label for="contact">Note/Appréciation</label>
     				<select class="form-control" id="note" name="note" required>
-    					<option>5</option>
-    					<option>4</option>
-    					<option>3</option>
-    					<option>2</option>
-    					<option>1</option>
+    					<option value="5">5</option>
+    					<option value="4.5">4.5</option>
+    					<option value="4">4</option>
+    					<option value="3.5">3.5</option>
+    					<option value="3">3</option>
+    					<option value="2.5">2.5</option>
+    					<option value="2">2</option>
+    					<option value="1.5">1.5</option>
+    					<option value="1">1</option>
     				</select>
 
     				
@@ -83,7 +90,7 @@
 							</tr>					
         				</thead>
         				<tbody>
-        					<tr v-for="list_element in full_list">
+        					<tr v-for="list_element in full_list" :key="list_element.media_id">
         						<td>{{list_element.titre}}</td>
         						<td>{{list_element.description}}</td>
         						<td class="wsnr">{{list_element.note}}</td>

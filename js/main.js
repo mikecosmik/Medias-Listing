@@ -10,6 +10,8 @@ $(document).ready(function(){
 		.done(function(data){;
 			//efface le form
 			$("#formData").trigger('reset');
+			$('#update').val(0);
+			$('#id').val("");
 			
 			if(data=="1"){
 				console.log("Ajout effectué!");
@@ -29,48 +31,40 @@ $(document).ready(function(){
 	        url: "includes/edit.php", // replace 'PHP-FILE.php with your php file
 	        data: {id: id},
 	        success: function(data) {
-	           $('#name').val(data["name"]);
-	           $("#email").val(data["email"]);
+				$('#update').val(1);
+				$('#id').val(data["media_id"]);
+				$('#titre').val(data["titre"]);
+				$("#description").val(data["description"]);	           
+				$('#note option[value="'+data["note"]+'"]').prop('selected', true);
+				$('#format option[value="'+data["fk_format"]+'"]').prop('selected', true);
+				$('#type option[value="'+data["fk_type"]+'"]').prop('selected', true);
 	        },
 	        error : function(){
 	           alert('Some error occurred!');
 	        }
 	    });
-		/*
-		$.ajax({
-			type: 'POST',
-			url: 'includes/post.php',
-			data: $("#formData").serialize()
-		})		
-		.done(function(data){;
-			//efface le form
-			$("#formData").trigger('reset');
-			
-			if(data=="1"){
-				console.log("Ajout effectué!");
-			}
-		});*/
 	})
 	
 	$('.fa-trash').on('click', function(){	
 		var id = $(this).children('span').text();
-		console.log(id);
-		//delete(id);
-		//sérialiser le form
-		/*
-		$.ajax({
-			type: 'POST',
-			url: 'includes/post.php',
-			data: $("#formData").serialize()
-		})		
-		.done(function(data){;
-			//efface le form
-			$("#formData").trigger('reset');
-			
-			if(data=="1"){
-				console.log("Ajout effectué!");
-			}
-		});*/
+		if (confirm('Supprimer? Vraiment? Certain certain? T\'est vraiment sûr toi-là?')) {
+			$.ajax({
+		        type: "GET",
+		        dataType: "json",
+		        url: "includes/delete.php", // replace 'PHP-FILE.php with your php file
+		        data: {id: id},
+		        success: function(data) {
+					$('#update').val(0);
+					$('#id').val("");
+					alert('Tu risque de regretter mais le précieux enregistrement a été kické de la DB!');
+		        },
+		        error : function(){
+		           alert('Erreur!!!');
+		        }
+		    });
+		} else {
+		    alert('Boooooooooon!!! Bonne idée de ne pas kicker le précieux contenu de la DB!');
+		}		
 	})
 });
 
@@ -126,8 +120,8 @@ Vue.component('full_list', {
 				this.full_list = full_list;
 			}.bind(this));
 			
-			//réexécuter après 5000 millisecondes
-			setTimeout(this.getFullList,5000);
+			setTimeout(this.getFullList,1000);
+			//très mauvais, solution trouvée, assigning keys to children après une modification/ajout/supress
 		}
 	}
 });
