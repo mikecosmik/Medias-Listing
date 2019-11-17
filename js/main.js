@@ -1,25 +1,36 @@
 $(document).ready(function(){		
-	$('.btn-primary').on('click', function(){		
-		console.log('Click');
-		//sérialiser le form
-		$.ajax({
-			type: 'POST',
-			url: 'includes/post.php',
-			data: $("#formData").serialize()
-		})		
-		.done(function(data){;
-			//efface le form
-			$("#formData").trigger('reset');
-			$('#update').val(0);
-			$('#id').val("");
-			
-			if(data=="1"){
-				console.log("Ajout effectué!");
-			}
-		});
+	$('.btn-primary.send').on('click', function(){
+		if($('#titre').val()==""){
+			alert("Héo!!! Le titre est requis!");
+		}else if($('#description').val()==""){
+			alert("Allez allez!  Un petit effort! Remplis la description, franchement! Non mais ça se peut-tu!");
+		}else{
+			//sérialiser le form
+			$.ajax({
+				type: 'POST',
+				url: 'includes/post.php',
+				data: $("#formData").serialize()
+			})		
+			.done(function(data){;
+				//efface le form
+				$("#formData").trigger('reset');
+				$('#update').val(0);
+				$('#id').val("");
+				
+				if(data=="1"){
+					console.log("Ajout effectué!");
+				}
+			});
+		}
+	})	
+
+	
+	$('.btn-primary.reset').bind('click', function(){
+		//efface le form
+		$("#formData").trigger('reset');		
 	})
 	
-	$('.fa-edit').on('click', function(){	
+	$('.fa-edit').bind('click', function(){	
 		var id = $(this).children('span').text();
 		console.log(id);
 		//edit(id);
@@ -45,7 +56,7 @@ $(document).ready(function(){
 	    });
 	})
 	
-	$('.fa-trash').on('click', function(){	
+	$('.fa-trash').bind('click', function(){	
 		var id = $(this).children('span').text();
 		if (confirm('Supprimer? Vraiment? Certain certain? T\'est vraiment sûr toi-là?')) {
 			$.ajax({
@@ -123,7 +134,7 @@ Vue.component('full_list', {
 			setTimeout(this.getFullList,1000);
 			//très mauvais, solution trouvée, assigning keys to children après une modification/ajout/supress
 		}
-	}
+	},
 });
 
 new Vue({

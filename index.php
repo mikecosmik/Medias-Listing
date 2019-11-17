@@ -71,7 +71,8 @@
     				<?php include_once 'includes/select_type.php';?>
     				</select>
     				
-    				<button type="button" class="btn form-control btn-primary">Envoyer</button>
+    				<button type="button" class="btn form-control btn-primary send">Envoyer</button>
+    				<button type="button" class="btn form-control btn-primary reset">Reset formulaire</button>
     			</form>
     		</div>
     		<div class="col-sm-9">

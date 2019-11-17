@@ -4,7 +4,8 @@ body{
 }
 
 input,
-select{
+select,
+button{
 	margin-bottom: 20px;
 }
 
