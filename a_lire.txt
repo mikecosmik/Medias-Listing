@@ -24,4 +24,8 @@ tbl type
 	avoir à les inclure un à un, ensuite par bonne pratique)
 	https://html5boilerplate.com/
 
--	
+-	L'application est basée sur un exemple de gestion de clients 
+	avec vue.js tirée de cette adresse
+	https://steemit.com/utopian-io/@kizzbonez/vuejs-php-tutorial-realtime-table-using-vuejs
+	J'ai grandement modifié le tout pour en faire ce petit projet 
+	surtout en PHP pour en faire de l'orienté objet

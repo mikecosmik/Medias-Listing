@@ -22,6 +22,20 @@ $(document).ready(function(){
 		console.log(id);
 		//edit(id);
 		//sérialiser le form
+
+	    $.ajax({
+	        type: "GET",
+	        dataType: "json",
+	        url: "includes/edit.php", // replace 'PHP-FILE.php with your php file
+	        data: {id: id},
+	        success: function(data) {
+	           $('#name').val(data["name"]);
+	           $("#email").val(data["email"]);
+	        },
+	        error : function(){
+	           alert('Some error occurred!');
+	        }
+	    });
 		/*
 		$.ajax({
 			type: 'POST',
