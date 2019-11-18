@@ -30,3 +30,8 @@ h1{
 .fas span{
 	display: none;
 }
+
+i.fa-edit,
+i.fa-trash{
+	display: block;
+}

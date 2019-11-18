@@ -1,16 +1,5 @@
 <?php
-
-
-function chargerClasse($classe)
-{
-    require '/class/' .$classe . '.class.php'; // Inclusion de la classe correspondante au paramètre passé.
-
-}
-
-
-
-spl_autoload_register('chargerClasse'); // Enregistre la fonction en autoload pour qu'elle soit appelée dès qu'on instanciera une classe non déclarée.
-
+include_once 'dbcon.php';
 
 $media = new Media([
   'titre' => '',

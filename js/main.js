@@ -30,39 +30,38 @@ $(document).ready(function(){
 		$("#formData").trigger('reset');		
 	})
 	
-	$('.fa-edit').bind('click', function(){	
+	$(document).on('click','.fa-edit', function(event){	
 		var id = $(this).children('span').text();
-		console.log(id);
-		//edit(id);
-		//sérialiser le form
-
+		url = "includes/getMedia.php";
+		
 	    $.ajax({
 	        type: "GET",
 	        dataType: "json",
-	        url: "includes/edit.php", // replace 'PHP-FILE.php with your php file
+	        url: url,
 	        data: {id: id},
 	        success: function(data) {
 				$('#update').val(1);
-				$('#id').val(data["media_id"]);
+				$('#id').val(id);
 				$('#titre').val(data["titre"]);
 				$("#description").val(data["description"]);	           
 				$('#note option[value="'+data["note"]+'"]').prop('selected', true);
-				$('#format option[value="'+data["fk_format"]+'"]').prop('selected', true);
-				$('#type option[value="'+data["fk_type"]+'"]').prop('selected', true);
+				$('#fk_format option[value="'+data["fk_format"]+'"]').prop('selected', true);
+				$('#fk_type option[value="'+data["fk_type"]+'"]').prop('selected', true);
 	        },
 	        error : function(){
-	           alert('Some error occurred!');
+	        	alert('Some error occurred!');
+	           
 	        }
 	    });
 	})
 	
-	$('.fa-trash').bind('click', function(){	
+	$(document).on('click','.fa-trash', function(event){	
 		var id = $(this).children('span').text();
 		if (confirm('Supprimer? Vraiment? Certain certain? T\'est vraiment sûr toi-là?')) {
 			$.ajax({
 		        type: "GET",
 		        dataType: "json",
-		        url: "includes/delete.php", // replace 'PHP-FILE.php with your php file
+		        url: "includes/delete.php",
 		        data: {id: id},
 		        success: function(data) {
 					$('#update').val(0);
@@ -76,6 +75,8 @@ $(document).ready(function(){
 		} else {
 		    alert('Boooooooooon!!! Bonne idée de ne pas kicker le précieux contenu de la DB!');
 		}		
+		
+		$("#formData").trigger('reset');
 	})
 });
 
@@ -103,14 +104,11 @@ if(res[1]){
 	url_order_by = "?order_by=" + res[1];
 }
 
-
 $( res ).each(function( index ) {
 	param = res[index];  
-	console.log( param );
 	  
 	  if( param.indexOf("order_by=") != -1 ){
 		  param = param.replace("order_by=", "");
-		  console.log(param);
 		  url_order_by = "?order_by=" + param;
 	  }
 });
@@ -131,8 +129,12 @@ Vue.component('full_list', {
 				this.full_list = full_list;
 			}.bind(this));
 			
-			setTimeout(this.getFullList,1000);
+			setTimeout(this.getFullList,5000);
 			//très mauvais, solution trouvée, assigning keys to children après une modification/ajout/supress
+			//Les solutions ici me semblent bonnes soit Better way: You can use forceUpdate et The best way: key-changing, 
+			//https://michaelnthiessen.com/force-re-render/ 
+			//en temps normal il est évident que je n'aurais pas laissé un disgracieux setTimeout lol mais dimanche, 21h, je crois
+			//que c'en est assez du démo :)
 		}
 	},
 });

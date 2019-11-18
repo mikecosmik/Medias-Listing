@@ -1,8 +1,10 @@
 <?php
+include('dbcon.php');
 
-include_once 'dbcon.php';
+$id         =   $_GET['id'];
+$media      =   new Media($id);
 
-$stmt = $pdo->query('   DELETE FROM media_element WHERE media_element.id='.$_GET['id']);
-$rows = $stmt->fetch(PDO::FETCH_ASSOC);
-print json_encode($rows);
-?>
+$db         =   new PDO('mysql:host=localhost;dbname=medias', 'root', '');
+$manager    =   new dbManager($db);
+
+$manager    ->  delete($media);

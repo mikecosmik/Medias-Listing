@@ -61,13 +61,13 @@
     				</select>
 
     				
-    				<label for="email">Format</label>
-    				<select class="form-control" id="format" name="format" required />
+    				<label for="fk_format">Format</label>
+    				<select class="form-control" id="fk_format" name="fk_format" required />
     				<?php include_once 'includes/select_format.php';?>
     				</select>
     				
     				<label for="type">Type</label>
-    				<select class="form-control" id="type" name="type" required />
+    				<select class="form-control" id="fk_type" name="fk_type" required />
     				<?php include_once 'includes/select_type.php';?>
     				</select>
     				
@@ -86,8 +86,8 @@
             					<th><a href="?order_by=titre">Titre</a></th>
             					<th><a href="?order_by=description">Description</a></th>
             					<th><a href="?order_by=note">Note</a></th>
-            					<th><a href="?order_by=format">Format</a></th>
-            					<th><a href="?order_by=type">Type</a></th>
+            					<th><a href="?order_by=fk_format">Format</a></th>
+            					<th><a href="?order_by=fk_type">Type</a></th>
 							</tr>					
         				</thead>
         				<tbody>
@@ -141,7 +141,7 @@
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/45191f2ac6.js"></script>
-    fontawesome-5.11.2-web
+    
 </body>
 
 </html>

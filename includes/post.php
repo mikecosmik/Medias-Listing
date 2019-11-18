@@ -1,32 +1,20 @@
 <?php 
+
 include('dbcon.php');
 
-$titre          = $_POST['titre']; 
+$id             = $_POST['id'];
+$titre          = $_POST['titre'];
 $description    = $_POST['description'];
 $note           = $_POST['note'];
-$format         = $_POST['format'];
-$type           = $_POST['type'];
-$update         = $_POST['update'];
+$fk_format      = $_POST['fk_format'];
+$fk_type        = $_POST['fk_type'];
 
-if( $update==1 ){
-    if(isset($_POST['id'])){
-        $id = $_POST['id'];
-        $query = 'UPDATE media_element SET titre="'.$titre.'", description="'.$description.'", note='.$note.', fk_format='.$format.', fk_type='.$type.' WHERE id='.$id;
-    }
-}else{
-    if($titre != "" && $description != ""){
-        $query = "INSERT INTO media_element(titre, description, note, fk_format, fk_type) values ('$titre','$description','$note','$format','$type')";
-    }
-}
+$media      =   new Media($id, $titre, $description, $note, $fk_format, $fk_type);
+$db         =   new PDO('mysql:host=localhost;dbname=medias', 'root', '');
+$manager    =   new dbManager($db);
 
-if(isset($query)){
-    $insert = mysqli_query($pdo, $query);
-    $stmt = $pdo->query($query);
+if( $_POST['update'] == "0" ){
+    $manager    ->  add($media);
+}else{    
+    $manager    ->  update($media);
 }
-
-if(isset($insert)){
-    echo "1";
-}else{
-    echo "0";
-}
-?>

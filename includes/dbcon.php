@@ -1,10 +1,11 @@
 <?php
-
-$con = mysqli_connect("localhost","root","", "medias");
-
-if(mysqli_connect_errno()){
-    echo "Échec à la connexion à MySQL: " . mysqli_connect_errno();
+function chargerClasse($classe)
+{
+    require '../class/' .$classe . '.class.php'; // On inclut la classe correspondante au paramÃ¨tre passÃ©.
+    
 }
+
+spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelÃ©e dÃ¨s qu'on instanciera une classe non dÃ©clarÃ©e.
 
 $host = '127.0.0.1';
 $db   = 'medias';
