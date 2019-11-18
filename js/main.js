@@ -69,7 +69,7 @@ $(document).ready(function(){
 					alert('Tu risque de regretter mais le précieux enregistrement a été kické de la DB!');
 		        },
 		        error : function(){
-		           alert('Erreur!!!');
+		           console.log('Erreur!!!');
 		        }
 		    });
 		} else {
