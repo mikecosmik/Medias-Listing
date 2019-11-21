@@ -2,9 +2,16 @@
 include('dbcon.php');
 
 $id         =   $_GET['id'];
-$media      =   new Media($id);
+$titre          = "";
+$description    = "";
+$note           = "";
+$fk_format      = "";
+$fk_type        = "";
 
-$db         =   new PDO('mysql:host=localhost;dbname=medias', 'root', '');
+$media      =   new Media($id, $titre, $description, $note, $fk_format, $fk_type);
+
+
+$db         =   new PDO("mysql:host=$host;dbname=$db", $user, $pass);
 $manager    =   new dbManager($db);
 
 $manager    ->  delete($media);

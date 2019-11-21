@@ -1,17 +1,31 @@
 <?php
+
+include('../class/dbManager.class.php');
+include('../class/media.class.php');
+
+/*
 function chargerClasse($classe)
 {
     require '../class/' .$classe . '.class.php'; // On inclut la classe correspondante au paramÃ¨tre passÃ©.
-    
+
 }
 
 spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelÃ©e dÃ¨s qu'on instanciera une classe non dÃ©clarÃ©e.
 
-$host = '127.0.0.1';
-$db   = 'medias';
-$user = 'root';
-$pass = '';
+
+  $host = '127.0.0.1';
+  $db   = 'medias';
+  $user = 'root';
+  $pass = 'toor';
+*/
+
+  $host = 'fdb17.your-hosting.net';
+  $db   = '3231814_medias';
+  $user = '3231814_medias';
+  $pass = '12singes';
+
 $charset = 'utf8';
+
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
