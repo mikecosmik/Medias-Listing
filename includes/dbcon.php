@@ -11,12 +11,6 @@ function chargerClasse($classe)
 }
 
 spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload pour qu'elle soit appelÃ©e dÃ¨s qu'on instanciera une classe non dÃ©clarÃ©e.
-
-
-  $host = 'localhost';
-  $db   = 'medias';
-  $user = 'root';
-  $pass = 'toor';
 */
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
