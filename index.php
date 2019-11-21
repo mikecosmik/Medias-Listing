@@ -62,7 +62,7 @@
     				<label for="firstname">Titre</label>
     				<input type="text" class="form-control" id="titre" name="titre" required />
 
-    				<label for="lastname">Descriptions</label>
+    				<label for="lastname">Description</label>
     				<input type="text" class="form-control" id="description" name="description" required />
 
     				<label for="contact">Note/Appréciation</label>
