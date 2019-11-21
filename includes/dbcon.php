@@ -18,11 +18,22 @@ spl_autoload_register('chargerClasse'); // On enregistre la fonction en autoload
   $user = 'root';
   $pass = 'toor';
 */
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-  $host = 'fdb17.your-hosting.net';
-  $db   = '3231814_medias';
-  $user = '3231814_medias';
-  $pass = '12singes';
+if(strpos($url, "localhost")===true || strpos($url, "127.0.0.1")===true){
+    $host = '127.0.0.1';
+    $db   = 'medias';
+    $user = 'root';
+    $pass = 'toor';
+}else{
+    $host = 'fdb17.your-hosting.net';
+    $db   = '3231814_medias';
+    $user = '3231814_medias';
+    $pass = '12singes';
+}
+
+
 
 $charset = 'utf8';
 
