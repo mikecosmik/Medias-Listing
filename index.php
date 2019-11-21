@@ -47,7 +47,6 @@
     ******************
     <![endif]-->
 
-<?php echo realpath('/class/media'); ?>
 	<div class="container">
 		<div class="row">
     		<div class="col-sm-12"><h1>Petite application de base 'Liste de médias'</h1></div></div>
